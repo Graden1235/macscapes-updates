@@ -1,0 +1,51 @@
+name: Publish Windows release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Check out update repository
+        uses: actions/checkout@v4
+
+      - name: Download MacScapes Windows source
+        shell: pwsh
+        run: |
+          Invoke-WebRequest `
+            -Uri "https://github.com/Graden1235/macscapes-updates/releases/download/v1.3/MacScapes-Windows-Source-1.3.zip" `
+            -OutFile "MacScapes-Windows-Source-1.3.zip"
+          Expand-Archive -Path "MacScapes-Windows-Source-1.3.zip" -DestinationPath "." -Force
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        working-directory: MacScapes-Windows
+        run: pnpm install --frozen-lockfile
+
+      - name: Build installer and portable edition
+        working-directory: MacScapes-Windows
+        run: pnpm run build:windows
+
+      - name: Attach Windows downloads and updater metadata
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.3 `
+            "MacScapes-Windows/dist/MacScapes-Windows-Setup-1.3.exe" `
+            "MacScapes-Windows/dist/MacScapes-Windows-Portable-1.3.exe" `
+            "MacScapes-Windows/dist/latest.yml" `
+            --clobber

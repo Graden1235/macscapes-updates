@@ -37,7 +37,7 @@ jobs:
 
       - name: Build installer and portable edition
         working-directory: MacScapes-Windows
-        run: pnpm run build:windows -- --publish never
+        run: pnpm run build:windows --publish never
 
       - name: Attach Windows downloads and updater metadata
         shell: pwsh

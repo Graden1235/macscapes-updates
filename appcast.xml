@@ -4,11 +4,11 @@
         <title>MacScapes</title>
         <item>
             <title>1.3</title>
-            <pubDate>Mon, 31 Aug 2026 19:49:43 -0400</pubDate>
-            <sparkle:version>10</sparkle:version>
+            <pubDate>Tue, 01 Sep 2026 11:08:53 -0400</pubDate>
+            <sparkle:version>11</sparkle:version>
             <sparkle:shortVersionString>1.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Graden1235/macscapes-updates/releases/download/v1.3/MacScapes-1.3.tar.gz" length="4893577" type="application/octet-stream" sparkle:edSignature="J2CjrFWCOWXZA4z50TMlGhUBfiwonn+eInZAyN0qLLLr63SdUAN8kNRSUDc3XOxY8zaH8gWCNBKGv1tRUrVLBw=="/>
+            <enclosure url="https://github.com/Graden1235/macscapes-updates/releases/download/v1.3/MacScapes-1.3.tar.gz" length="5944818" type="application/octet-stream" sparkle:edSignature="Aw8yrpeqjmxah6meDxu7bReM4rIUroe6cyOgJKhJGiW0o+ua0YpRjwSehwCDpz6Jw7g3pzz6VJP8wfqql1psBw=="/>
         </item>
     </channel>
 </rss>
